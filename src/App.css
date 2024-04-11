@@ -32,6 +32,11 @@
   margin-bottom: 8em;
 }
 
+.about{
+  background-color: #FFFCEC;
+  padding-bottom: 4em;
+}
+
 .about > img {
   width: 35%;
 }
@@ -51,20 +56,52 @@
 .uses{
   width: 90%;
   margin: auto;
+  margin-top: 2em;
+}
+
+.use, .try > div {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#use1, #use4, #use5, #use8 {
+  width: 55%;
+}
+
+#use2, #use3, #use6, #use7 {
+  width: 40%;
 }
 
 #use1{
-  width: 50%;
   background-image: url(./images/Rectangle4.png);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 #use2{
-  width: 30%;
   background-image: url(./images/health.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
+}
+
+#use3{
+  background-image: url(./images/cat.jpeg);
+}
+
+#use4{
+  background-image: url(./images/5.jpeg);
+}
+
+#use5{
+  background-image: url(./images/vr.jpeg);
+}
+
+#use6{
+  background-image: url(./images/3.jpeg);
+}
+
+#use7{
+  background-image: url(./images/2.jpeg);
+}
+
+#use8{
+  background-image: url(./images/1.jpeg);
 }
 
 .inner{
@@ -72,8 +109,47 @@
   background: linear-gradient(rgba(189,187,187, 0.4), rgba(65,64,64, 1));
 }
 
+.cases{
+  width: 80%;
+  margin: auto;
+}
+
 .cases > p{
   width: 40%;
+}
+
+.try{
+  background-color: #E9F3FF;
+}
+
+.try > div {
+  background-image: url(./images/Rectangle20.png);
+}
+
+.try > div > p{
+  width: 40%;
+}
+
+.footer{
+  background-color: #031E3E;
+}
+
+.foottop, .rule, .footbottom{
+  width: 80%;
+  margin: auto;
+}
+
+.rule{
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.logos{
+  width: 15%;
+}
+
+.text{
+  width: 30%;
 }
 
 @media screen and (max-width: 768px) {

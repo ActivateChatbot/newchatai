@@ -2,7 +2,7 @@ import React from 'react'
 import './main.css'
 import image1 from '../images/Rectangle12.png'
 import image2 from '../images/Rectangle13.png'
-import image3 from '../images/Polygon1.png'
+//import image3 from '../images/Polygon1.png'
 import { Uses } from './Uses'
 
 const Main = () => {
@@ -43,6 +43,15 @@ const Main = () => {
       </section>
 
       <Uses />
+
+      <section className='try flex flex-col mt-16 items-center justify-center text-center'>
+
+        <div className='flex flex-col items-center justify-center text-center mt-16 mb-16'>
+          <p className='text-white font-semibold mt-32 mb-8 text-lg'>Adopt our AI to modernize your agency interaction with the public and elevate citizens engagement.</p>
+          <a className='capitalize flex items-center rounded-md mb-44 text-white bg-blue-700 px-4 py-2' href='/'>Try it now</a>
+        </div>
+
+      </section>
 
     </div>
   )

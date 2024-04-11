@@ -1,11 +1,4 @@
 import React from 'react'
-import img1 from '../images/health.jpeg'
-import img2 from '../images/cat.jpeg'
-import img3 from '../images/5.jpeg'
-import img4 from '../images/vr.jpeg'
-import img5 from '../images/3.jpeg'
-import img6 from '../images/2.jpeg'
-import img7 from '../images/1.jpeg'
 
 const Uses = () => {
   return (
@@ -19,11 +12,47 @@ const Uses = () => {
       <section className='uses flex justify-between items-center'>
 
         <div className='use flex flex-col rounded-md' id='use1'>
-          <p className='inner text-white flex items-start text-left pl-4 py-6 mt-64 capitalize font-semibold rounded-b-md rounded-l-md'>governor's mission</p>
+          <p className='inner text-white flex items-start text-left pl-4 py-6 mt-56 capitalize font-semibold rounded-b-md rounded-l-md'>governor's mission</p>
         </div>
 
         <div className='use flex flex-col rounded-lg' id='use2'>
-          <p className='inner text-white flex items-start text-left pl-4 py-6 mt-64 capitalize font-semibold rounded-b-md rounded-l-md'>health services</p>
+          <p className='inner text-white flex items-start text-left pl-4 py-6 mt-56 capitalize font-semibold rounded-b-md rounded-l-md'>health services</p>
+        </div>
+
+      </section>
+
+      <section className='uses flex justify-between items-center'>
+
+        <div className='use flex flex-col rounded-lg' id='use3'>
+          <p className='inner text-white flex items-start text-left pl-4 py-6 mt-56 capitalize font-semibold rounded-b-md rounded-l-md'>Arts & Culture</p>
+        </div>
+
+        <div className='use flex flex-col rounded-md' id='use4'>
+          <p className='inner text-white flex items-start text-left pl-4 py-6 mt-56 capitalize font-semibold rounded-b-md rounded-l-md'>Educational Resources</p>
+        </div>
+
+      </section>
+
+      <section className='uses flex justify-between items-center'>
+
+        <div className='use flex flex-col rounded-md' id='use5'>
+          <p className='inner text-white flex items-start text-left pl-4 py-6 mt-64 capitalize font-semibold rounded-b-md rounded-l-md'>Sports</p>
+        </div>
+
+        <div className='use flex flex-col rounded-lg' id='use6'>
+          <p className='inner text-white flex items-start text-left pl-4 py-6 mt-64 capitalize font-semibold rounded-b-md rounded-l-md'>Tourism Information</p>
+        </div>
+
+      </section>
+
+      <section className='uses flex justify-between items-center'>
+
+        <div className='use flex flex-col rounded-lg' id='use7'>
+          <p className='inner text-white flex items-start text-left pl-4 py-6 mt-52 capitalize font-semibold rounded-b-md rounded-l-md'>Security Measures</p>
+        </div>
+
+        <div className='use flex flex-col rounded-md' id='use8'>
+          <p className='inner text-white flex items-start text-left pl-4 py-6 mt-52 capitalize font-semibold rounded-b-md rounded-l-md'>Investment Guidance</p>
         </div>
 
       </section>
