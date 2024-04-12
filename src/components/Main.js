@@ -2,7 +2,7 @@ import React from 'react'
 import './main.css'
 import image1 from '../images/Rectangle12.png'
 import image2 from '../images/Rectangle13.png'
-//import image3 from '../images/Polygon1.png'
+import { Link } from "react-router-dom";
 import { Uses } from './Uses'
 
 const Main = () => {
@@ -15,7 +15,7 @@ const Main = () => {
         
         <p className='p1 text-white text-center font-medium'>Revolutionizing Public Engagement: Empowerment through Advanced AI Chatbot Technology</p>
 
-        <a className='capitalize flex items-center rounded-md text-black bg-white px-4 py-2' href='/'>Get Started For Free</a>
+        <Link to='/signup' className='capitalize flex items-center rounded-md text-black bg-white px-4 py-2'>Get Started For Free</Link>
       
       </section>
 
@@ -27,7 +27,7 @@ const Main = () => {
           <p className='font-semibold mt-4 mb-6'>Empower your agency to deliver instant, accurate responses to citizens. 
             Say goodbye to long wait times and inaccessible information with our leading Gen AI chatbot solution.
           </p>
-          <a className='capitalize flex items-center rounded-md text-white bg-blue-700 px-4 py-2' href='/'>Try It Now</a>
+          <Link className='capitalize flex items-center rounded-md text-white bg-blue-700 px-4 py-2' to='/chat'>Try It Now</Link>
         </article>
 
         <img src={image1} alt='' />

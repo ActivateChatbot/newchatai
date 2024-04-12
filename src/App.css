@@ -59,7 +59,7 @@
   margin-top: 2em;
 }
 
-.use, .try > div {
+.use, .try > div, .chatpage {
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -102,6 +102,11 @@
 
 #use8{
   background-image: url(./images/1.jpeg);
+}
+
+.chatpage{
+  background-image: url(./images/Rectangle23.png);
+  height: 100vh;
 }
 
 .inner{
@@ -167,6 +172,43 @@
 .input::placeholder{
   font-weight: bold;
   font-size: 12px;
+}
+
+.chatmain{
+  width: 50%;
+  margin: auto;
+}
+
+.chatmain > header {
+  border-bottom: 2px solid rgb(201, 200, 200);
+}
+
+.logout, #logo2, .profile > img{
+  width: 5%;
+}
+
+#send{
+  width: 80%;
+}
+
+.chat-sec{
+  width: 90%;
+  margin: auto;
+  margin-top: 2em;
+}
+
+.message{
+  border: 2px solid rgb(201, 200, 200);
+  margin-top: 12em;
+  margin-bottom: 2em;
+}
+
+.message > div {
+  width: 90%;
+}
+
+.chatinput {
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {

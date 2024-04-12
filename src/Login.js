@@ -14,7 +14,7 @@ const Login = () => {
             <h1 className='capitalize font-bold text-3xl'>login</h1>
 
             <span className='font-semibold mt-4 text-sm'> Don't have an account? 
-                <Link className='capitalize text-blue-700 font-bold' to='/login'>register</Link> 
+                <Link className='capitalize text-blue-700 font-bold' to='/signup'> register</Link> 
             </span>
 
             <form className='flex flex-col mt-8 w-3/6'>
