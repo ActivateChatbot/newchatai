@@ -78,7 +78,7 @@ const Login = () => {
                 <Link className='capitalize text-blue-700 font-bold' to='/signup'> register</Link> 
             </span>
 
-            <form onSubmit={handleSubmit} className='flex flex-col mt-8 w-3/6'>
+            <form onSubmit={handleSubmit} className='flex flex-col mt-8 md:w-3/6'>
 
                 <div className='mt-4 border-2 border-black rounded-lg'>
                     <input type='text' placeholder='Username' className='input border-none outline-none' 

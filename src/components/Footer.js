@@ -25,11 +25,11 @@ const Footer = () => {
   return (
     <footer className='footer flex flex-col justify-center items-center text-center py-4'>
 
-      <div className='foottop flex justify-between items-center w-full pt-2'>
+      <div className='foottop md:flex md:justify-between items-center w-full pt-2'>
 
         <img src={logo} alt='' id='' />
 
-        <div className="navitem flex justify-between items-center w-2/4">
+        <div className="navitems flex justify-between items-center md:w-2/4">
 
           {footlinks.map(({ id, link }) => (
             <div
@@ -45,7 +45,7 @@ const Footer = () => {
 
       <hr className='bg-white rule' />
 
-      <div className='footbottom flex justify-between items-center'>
+      <div className='footbottom md:flex md:justify-between items-center'>
 
           <div className='logos flex justify-between items-center'>
 
@@ -56,7 +56,7 @@ const Footer = () => {
 
           </div>
 
-          <div className='text flex justify-between items-center text-white'>
+          <div className='text md:flex md:justify-between md:items-center text-white'>
             <p className='text-sm'>All Right Resrved</p>
             <p className='text-sm'>@AI Chatbot 2024</p>
           </div>

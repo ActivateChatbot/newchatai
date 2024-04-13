@@ -37,7 +37,7 @@ const Signup = () => {
     };
 
   return (
-    <div className='signup flex justify-between'>
+    <div className='signup md:flex md:justify-between'>
 
         <img src={image} alt='' />
 
@@ -49,7 +49,7 @@ const Signup = () => {
                 <Link className='capitalize text-blue-700 font-bold' to='/login'>login</Link> 
             </span>
 
-            <form onSubmit={handleSubmit} className='flex flex-col mt-8 w-3/6'>
+            <form onSubmit={handleSubmit} className='flex flex-col mt-8 md:w-3/6'>
 
                 <div className='mt-4 border-2 border-black rounded-lg'>
                     <input type='text' placeholder='Firstname' className='input border-none outline-none'           

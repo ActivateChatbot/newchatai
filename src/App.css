@@ -44,19 +44,6 @@
 .about article{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  width: 35%;
-}
-
-#video{
-  width: 60%;
-}
-
-.uses{
-  width: 90%;
-  margin: auto;
-  margin-top: 2em;
 }
 
 .use, .try > div, .chatpage {
@@ -114,25 +101,12 @@
   background: linear-gradient(rgba(189,187,187, 0.4), rgba(65,64,64, 1));
 }
 
-.cases{
-  width: 80%;
-  margin: auto;
-}
-
-.cases > p{
-  width: 40%;
-}
-
 .try{
   background-color: #E9F3FF;
 }
 
 .try > div {
   background-image: url(./images/Rectangle20.png);
-}
-
-.try > div > p{
-  width: 40%;
 }
 
 .footer{
@@ -149,14 +123,6 @@
   margin-bottom: 1em;
 }
 
-.logos{
-  width: 15%;
-}
-
-.text{
-  width: 30%;
-}
-
 .signup{
   height: 100vh;
 }
@@ -165,26 +131,13 @@
   width: 40%;
 }
 
-.signup > aside {
-  width: 60%;
-}
-
 .input::placeholder{
   font-weight: bold;
   font-size: 12px;
 }
 
-.chatmain{
-  width: 50%;
-  margin: auto;
-}
-
 .chatmain > header {
   border-bottom: 2px solid rgb(201, 200, 200);
-}
-
-.logout, #logo2, .profile > img{
-  width: 5%;
 }
 
 #send{
@@ -213,4 +166,135 @@
 
 @media screen and (max-width: 768px) {
   
+  .navitem, .navstart, .rule, .signup > img {
+    display: none;
+  }
+
+  .mobilenav{
+    background-color: #fff;
+    position: absolute;
+    top: 5em;
+    left: 1em;
+    width: 80%;
+    height: 100vh;
+  }
+
+  .mobilestart{
+    width: 40%;
+    margin-top: 2em;
+    text-align: center;
+  }
+
+  .hero > h1, .p1{
+    width: 80%;
+  }
+
+  .about article > h1, .try > div > p{
+    width: 90%;
+  }
+
+  .try > div > p{
+    position: relative;
+    top: 5em;
+  }
+
+  .try > div > a{
+    position: relative;
+    top: 7em;
+  }
+
+  .about article{
+    align-items: center;
+    text-align: center;
+  }
+
+  .about > img {
+    width: 70%;
+    margin: auto;
+    margin-top: 2em;
+  }
+
+  .uses{
+    width: 100%;
+    margin: auto;
+    margin-top: 2em;
+  }
+
+  .navitems{
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  .logos{
+    width: 50%;
+    margin-top: 1em;
+  }
+
+  .text{
+    margin-top: 1em;
+  }
+
+  .input{
+    width: 100%;
+  }
+
+  .chatmain{
+    width: 90%;
+    margin: auto;
+  }
+
+  .logout, #logo2, .profile > img{
+    width: 8%;
+  }
+
+}
+
+@media screen and (min-width: 769px) {
+
+  .about article{
+    align-items: flex-start;
+    text-align: left;
+    width: 35%;
+  }
+
+  #video{
+    width: 60%;
+  }
+
+  .cases{
+    width: 80%;
+    margin: auto;
+  }
+  
+  .cases > p, .try > div > p{
+    width: 40%;
+  }
+
+  .uses{
+    width: 90%;
+    margin: auto;
+    margin-top: 2em;
+  }
+
+  .logos{
+    width: 15%;
+  }
+
+  .text{
+    width: 30%;
+  }
+
+  .signup > aside {
+    width: 60%;
+  }
+
+  .chatmain{
+    width: 50%;
+    margin: auto;
+  }
+
+  .logout, #logo2, .profile > img{
+    width: 5%;
+  }
+
 }

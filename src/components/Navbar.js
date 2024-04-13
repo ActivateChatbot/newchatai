@@ -43,7 +43,7 @@ const Navbar = () => {
 
       </div>
 
-      <Link to='/signup' className='capitalize flex items-center rounded-md text-white bg-blue-700 px-4 py-2'>Get Started</Link>
+      <Link to='/signup' className='navstart capitalize flex items-center rounded-md text-white bg-blue-700 px-4 py-2'>Get Started</Link>
 
       <div onClick={() => setNav(!nav)} className="toggler md:hidden">
 
@@ -61,13 +61,13 @@ const Navbar = () => {
             <div
               key={id} className='mt-4'
             >
-              <a className='capitalize' onClick={() => setNav(!nav)} href={link}>
+              <a className='capitalize font-semibold' onClick={() => setNav(!nav)} href={link}>
                 {link}
               </a>
             </div>
           ))}
 
-        <a className='capitalize' href='/'>Contact Us</a>
+          <Link to='/signup' className='mobilestart capitalize flex justify-center items-center text-center rounded-md text-white bg-blue-700 px-4 py-2'>Get Started</Link>
 
         </div>
 
