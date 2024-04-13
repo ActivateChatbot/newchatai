@@ -1,21 +1,34 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import logo from './images/logo1.png'
 import logout from './images/logout.png'
 import user from './images/Ellipse.png'
 import bot from './images/5.png'
 import emoji from './images/emoji.png'
 import send from './images/arrow.png'
+import { useNavigate } from 'react-router-dom'
 
 const Chat = () => {
+
+    const navigate = useNavigate()
+  
+    function logoutfunc () {
+      localStorage.clear()
+      navigate('/login')
+    }
+
   return (
     <div className='chatpage pt-24'>
 
         <div className='chatmain flex flex-col justify-center bg-white rounded-lg'>
 
             <header className='flex items-center justify-end pt-4 pb-4'>
+
                 <img src={logo} alt='' id='logo2' />
-                <img src={logout} alt='' className='logout ml-64 mr-4' />
+                <button className='btn-logout' onClick={logoutfunc}>
+                    <img src={logout} alt='' className='logout ml-64 mr-4' />
+                </button>
+                
             </header>
 
             <section className='chat-sec'>
