@@ -1,7 +1,7 @@
 {
   "name": "analytics",
   "version": "0.1.0",
-  "homepage": "https://faozziyyah.github.io/skinnify",
+  "homepage": "https://ActivateChatbot.github.io/newchatai",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.18",

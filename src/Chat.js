@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 //import { Link } from "react-router-dom";
 import logo from './images/logo1.png'
 import logout from './images/logout.png'
@@ -7,15 +7,166 @@ import bot from './images/5.png'
 import emoji from './images/emoji.png'
 import send from './images/arrow.png'
 import { useNavigate } from 'react-router-dom'
+import axios from "axios";
 
 const Chat = () => {
 
+    const [data, setData] = useState("");
+
+    const [ chatHistory, setChatHistory ] = useState([])
+
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setData({
+        ...data,
+        [name]: value,
+      });
+    };
+
     const navigate = useNavigate()
+    
+    /*useEffect(() => {
+
+        const getHistory = async () => {
+
+            try {
+                const response = await fetch( 'https://demo.schautomate.com.ng/api/users' );
+  
+                if (response.ok) {
+                  const data = await response.json();
+                  setChatHistory(data);
+                  //console.log(data)
+
+                } else {
+                  // Handle error response
+                  console.error('Failed to fetch chat history');
+                }
+            } catch (error) {
+                console.error('Error fetching chat history:', error);       
+            }
+
+        };
+
+        getHistory();
+
+    }, []) */
   
     function logoutfunc () {
       localStorage.clear()
       navigate('/login')
     }
+
+    const handleSubmit = async (e) => {
+        try {
+          e.preventDefault();
+      
+          const userMessage = {
+            user_input: data.user_input,
+          };
+      
+          const userData = localStorage.getItem('user-info');
+          if (!userData) {
+            throw new Error('User details not found in local storage');
+          }
+      
+          const userdetail = JSON.parse(userData);
+          const authToken = userdetail.data.token;
+      
+          const response = await axios.post("https://chatbotapi0.onrender.com/message", userMessage, {
+            headers: {
+              Authorization: `Token ${authToken}`,
+            },
+          });
+      
+          console.log(response.data); // Log the response data only
+      
+          localStorage.setItem('user-message', JSON.stringify(response.data));
+      
+          // Fetch chat history after sending the message
+          //await getHistory();
+        } catch (error) {
+          console.error('Error handling form submission:', error);
+          // Handle errors gracefully, e.g., display an error message to the user
+        }
+      };
+      
+
+    /*const handleSubmit = (e) => {
+
+      e.preventDefault();
+
+      const userMessage = {
+        user_input: data.user_input,
+      };
+
+      console.log(userMessage, 'string')
+
+      const userData = localStorage.getItem('user-info')
+
+      const userdetail = JSON.parse(userData)
+      //console.log(userdetail)
+
+      const authToken = userdetail.data.token;
+
+      //const authToken = 'ebb0c5132b760371837f5b94116d1c44b0076d84';
+
+      axios
+        .post("https://chatbotapi0.onrender.com/message", userMessage, {
+            headers: {
+              Authorization: `Token ${authToken}`,
+            },
+        })
+        .then((response) => {
+          
+          console.log(response, response.data.token);
+          //console.log(document.cookie)
+          localStorage.setItem('user-message', JSON.stringify(response))
+
+          const userData = localStorage.getItem('user-message');
+          setData(userData);
+
+          /*const userdetail = JSON.parse(userData)
+
+          if (userdetail.data.type === 'admin') {
+            navigate("/admin")
+          } else {
+            navigate("/chat")
+          }*/
+
+          /*const getHistory = async () => {
+  
+              try {
+                  const response = await fetch( 'https://chatbotapi0.onrender.com/message' );
+    
+                  if (response.ok) {
+                    const data = await response.json();
+                    setChatHistory(data);
+                    //console.log(data)
+  
+                  } else {
+                    // Handle error response
+                    console.error('Failed to fetch chat history');
+                  }
+              } catch (error) {
+                  console.error('Error fetching chat history:', error);       
+              }
+  
+          };
+  
+          getHistory();
+
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response);
+            console.log("server responded");
+          } else if (error.request) {
+            console.log("network error");
+          } else {
+            console.log(error);
+          }
+        });
+    };*/
 
   return (
     <div className='chatpage pt-24'>
@@ -55,11 +206,15 @@ const Chat = () => {
                     
                 </div>
 
-                <form className='message flex items-center justify-between rounded-lg px-2'>
+                <form onSubmit={handleSubmit} className='message flex items-center justify-between rounded-lg px-2'>
 
                     <div className='flex items-center'>
                         <img src={emoji} alt='' id='emoji' />
-                        <input type='text' placeholder='Message AI Chatbot' className='chatinput border-none outline-none' />
+                        <input name='user_input' type='text' value={data.user_input}
+                            placeholder='Message AI Chatbot' 
+                            className='chatinput border-none outline-none' 
+                            onChange={handleInputChange}
+                        />
                     </div>
 
                     <button type='' className=''> <img src={send} alt='' id='send' /> </button>
