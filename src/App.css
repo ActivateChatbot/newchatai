@@ -144,10 +144,17 @@
   width: 80%;
 }
 
+.chatmain{
+  margin-top: -1em;
+}
+
 .chat-sec{
   width: 90%;
+  height: 400px;
+  overflow-y: scroll;
   margin: auto;
-  margin-top: 2em;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
 }
 
 .message{
