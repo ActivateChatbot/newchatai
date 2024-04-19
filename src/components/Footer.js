@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../images/logo1.png'
+import logo from '../images/Logo2.png'
 import facebook from '../images/facebook.png'
 import insta from '../images/instagram.png'
 import x from '../images/outlined.png'
@@ -27,7 +27,7 @@ const Footer = () => {
 
       <div className='foottop md:flex md:justify-between items-center w-full pt-2'>
 
-        <img src={logo} alt='' id='' />
+        <img src={logo} alt='' id='' style={{width: '10%'}} />
 
         <div className="navitems flex justify-between items-center md:w-2/4">
 

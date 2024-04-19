@@ -75,7 +75,7 @@ const Login = () => {
             <h1 className='capitalize font-bold text-3xl'>login</h1>
 
             <span className='font-semibold mt-4 text-sm'> Don't have an account? 
-                <Link className='capitalize text-blue-700 font-bold' to='/signup'> register</Link> 
+                <Link className='capitalize font-bold' to='/signup' style={{color: '#52018E'}}> register</Link> 
             </span>
 
             <form onSubmit={handleSubmit} className='flex flex-col mt-8 md:w-3/6'>
@@ -97,7 +97,7 @@ const Login = () => {
                     <img src={eye} alt='' />
                 </div>
 
-                <button type='submit' className='capitalize flex justify-center items-center text-center rounded-md text-white bg-blue-700 px-4 py-2 mt-16'>login</button>
+                <button type='submit' className='capitalize flex justify-center items-center text-center rounded-md text-white px-4 py-2 mt-16' style={{background: '#52018E'}}>login</button>
 
             </form>
 

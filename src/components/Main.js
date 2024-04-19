@@ -27,7 +27,7 @@ const Main = () => {
           <p className='font-semibold mt-4 mb-6'>Empower your agency to deliver instant, accurate responses to citizens. 
             Say goodbye to long wait times and inaccessible information with our leading Gen AI chatbot solution.
           </p>
-          <Link className='capitalize flex items-center rounded-md text-white bg-blue-700 px-4 py-2' to='/login'>Try It Now</Link>
+          <Link className='artcle-link capitalize flex items-center rounded-md text-white px-4 py-2' to='/login'>Try It Now</Link>
         
         </article>
 
@@ -49,7 +49,7 @@ const Main = () => {
 
         <div className='flex flex-col items-center justify-center text-center mt-16 mb-16'>
           <p className='text-white font-semibold md:mt-32 md:mb-8 md:text-lg'>Adopt our AI to modernize your agency interaction with the public and elevate citizens engagement.</p>
-          <a className='capitalize flex items-center rounded-md mb-44 text-white bg-blue-700 px-4 py-2' href='/'>Try it now</a>
+          <a className='try-link capitalize flex items-center rounded-md mb-44 text-white px-4 py-2' href='/'>Try it now</a>
         </div>
 
       </section>

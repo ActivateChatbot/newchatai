@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from "react-router-dom";
-import logo from '../images/logo1.png'
+import logo from '../images/Logo3.png'
 import hamburger from '../images/hamdark.png'
 import close from '../images/Frame.png'
 const Navbar = () => {
@@ -43,7 +43,7 @@ const Navbar = () => {
 
       </div>
 
-      <Link to='/signup' className='navstart capitalize flex items-center rounded-md text-white bg-blue-700 px-4 py-2'>Get Started</Link>
+      <Link to='/signup' className='navstart capitalize flex items-center rounded-md text-white px-4 py-2'>Get Started</Link>
 
       <div onClick={() => setNav(!nav)} className="toggler md:hidden">
 
@@ -67,7 +67,7 @@ const Navbar = () => {
             </div>
           ))}
 
-          <Link to='/signup' className='mobilestart capitalize flex justify-center items-center text-center rounded-md text-white bg-blue-700 px-4 py-2'>Get Started</Link>
+          <Link to='/signup' className='mobilestart capitalize flex justify-center items-center text-center rounded-md text-white px-4 py-2'>Get Started</Link>
 
         </div>
 

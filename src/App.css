@@ -17,6 +17,14 @@
   background-size: cover;
 }
 
+.navstart, .mobilestart, .artcle-link, .try-link{
+  background-color: #52018E;
+}
+
+.footer{
+  background-color: #290147;
+}
+
 .hero > h1{
   width: 60%;
   margin-top: 5em;
@@ -109,10 +117,6 @@
   background-image: url(./images/Rectangle20.png);
 }
 
-.footer{
-  background-color: #031E3E;
-}
-
 .foottop, .rule, .footbottom{
   width: 80%;
   margin: auto;
@@ -144,23 +148,22 @@
   width: 80%;
 }
 
-.chatmain{
-  margin-top: -1em;
-}
-
 .chat-sec{
   width: 90%;
   height: 400px;
   overflow-y: scroll;
   margin: auto;
   margin-top: 1em;
-  margin-bottom: 1.5em;
+  margin-bottom: -10em;
+  padding-bottom: 1em;
 }
 
 .message{
   border: 2px solid rgb(201, 200, 200);
+  width: 90%;
+  margin: auto;
   margin-top: 12em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .message > div {
@@ -250,8 +253,12 @@
     margin: auto;
   }
 
-  .logout, #logo2, .profile > img{
+  .profile > img{
     width: 8%;
+  }
+
+  #logo2{
+    width: 45%;
   }
 
 }
@@ -283,6 +290,10 @@
     margin-top: 2em;
   }
 
+  #logo{
+    width: 10%;
+  }
+
   .logos{
     width: 15%;
   }
@@ -300,8 +311,12 @@
     margin: auto;
   }
 
-  .logout, #logo2, .profile > img{
+  .profile > img{
     width: 5%;
+  }
+
+  #logo2{
+    width: 45%;
   }
 
 }
