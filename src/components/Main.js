@@ -1,7 +1,7 @@
 import React from 'react'
 import './main.css'
 import image1 from '../images/Rectangle12.png'
-import image2 from '../images/Rectangle13.png'
+import video from '../images/Group2.png'
 import { Link } from "react-router-dom";
 import { Uses } from './Uses'
 
@@ -39,7 +39,9 @@ const Main = () => {
 
         <h1 className='font-bold text-center text-3xl md:mt-16 mb-8'>How It Works? Watch Now</h1>
 
-        <img src={image2} alt='' id='video' />
+        <div className='watch-now'>
+          <img src={video} alt='' id='watch' />
+        </div>
 
       </section>
 
@@ -49,7 +51,7 @@ const Main = () => {
 
         <div className='flex flex-col items-center justify-center text-center mt-16 mb-16'>
           <p className='text-white font-semibold md:mt-32 md:mb-8 md:text-lg'>Adopt our AI to modernize your agency interaction with the public and elevate citizens engagement.</p>
-          <a className='try-link capitalize flex items-center rounded-md mb-44 text-white px-4 py-2' href='/'>Try it now</a>
+          <Link className='try-link capitalize flex items-center rounded-md mb-44 text-white px-4 py-2' to='/login'>Try It Now</Link>
         </div>
 
       </section>

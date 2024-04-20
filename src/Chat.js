@@ -70,6 +70,8 @@ const Chat = () => {
         console.error("Error fetching user chat history:", error);
       }
     };
+    
+    const sortedChatHistory = chatHistory.sort((a, b) => a.id - b.id);
 
     const sendMessage = async () => {
 
@@ -122,7 +124,6 @@ const Chat = () => {
     };
 
   return (
-    <div className="chatpage pt-8">
 
       <div className="chatmain flex flex-col justify-center bg-white rounded-lg">
 
@@ -130,7 +131,7 @@ const Chat = () => {
 
           <Chatbar />
 
-          <Menu as="div" className="relative inline-block text-left">
+          <Menu as="div" className="relative inline-block text-left md:ml-16">
           
             <div>
 
@@ -193,7 +194,7 @@ const Chat = () => {
             
           </Menu>
 
-          <button className="btn-logout" onClick={logoutfunc}>
+          <button className="btn-logout md:mr-16" onClick={logoutfunc}>
             <img src={logout} alt="" className="logout" />
           </button>
 
@@ -201,14 +202,14 @@ const Chat = () => {
 
         <section id="chat-container" className="chat-sec">
 
-        {chatHistory.map((message, index) => (
+        {sortedChatHistory.map((message, index) => (
               <div
                 key={index}
                 className={`profile flex items-center mt-4 ${
                   message.isUser ? "justify-end" : ""
                 }`}
               >
-              {!message.isUser && <img src={bot} alt="" id="logo" />}
+              {/*{!message.isUser && <img src={bot} alt="" id="logo" />}*/}
               
                 <p className="font-medium text-xs text-gray-500"> {message?.messageInput} </p>
 
@@ -241,7 +242,7 @@ const Chat = () => {
 
               </div>
 
-              {message.isUser && <img src={user} alt="" id="" />}
+              {message.isUser && <img src={user} alt="" id="userlogo" />}
 
             </div>
           ))}  
@@ -276,7 +277,6 @@ const Chat = () => {
         
       </div>
 
-    </div>
   );
 };
 

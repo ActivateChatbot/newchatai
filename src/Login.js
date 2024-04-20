@@ -3,6 +3,7 @@ import image from './images/Rectangle22.png'
 import eye from './images/eye.png'
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import logo from "./images/Logo3.png";
 
 const Login = () => {
 
@@ -67,6 +68,8 @@ const Login = () => {
 
   return (
     <div className='signup flex justify-between'>
+
+        <img src={logo} alt='' className='formlogo absolute' id="formlogo" />
 
         <img src={image} alt='' />
 

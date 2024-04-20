@@ -45,7 +45,7 @@ const Footer = () => {
 
       <hr className='bg-white rule' />
 
-      <div className='footbottom md:flex md:justify-between items-center'>
+      <div className='footbottom justify-center md:flex md:justify-between items-center'>
 
           <div className='logos flex justify-between items-center'>
 
@@ -56,10 +56,7 @@ const Footer = () => {
 
           </div>
 
-          <div className='text md:flex md:justify-between md:items-center text-white'>
-            <p className='text-sm'>All Right Resrved</p>
-            <p className='text-sm'>@AI Chatbot 2024</p>
-          </div>
+          <p className='text-sm text-white'>Powered by Goviral --an AI Research Lab in Lagos.</p>
 
       </div>
 
