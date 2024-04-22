@@ -6,7 +6,7 @@ import user from "./images/Ellipse.png";
 import bot from "./images/5.png";
 import emoji from "./images/emoji.png";
 import send from "./images/send.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
@@ -71,7 +71,9 @@ const Chat = () => {
       }
     };
     
-    const sortedChatHistory = chatHistory.sort((a, b) => a.id - b.id);
+    const sortedChatHistory = chatHistory.sort((a, b) => { 
+      return a.id - b.id;
+    });
 
     const sendMessage = async () => {
 
@@ -136,7 +138,7 @@ const Chat = () => {
             <div>
 
               <Menu.Button className="inline-flex w-full justify-center items-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                <img src={logo} alt="" id="logo2" />
+                <Link to="/" id="logo2"> <img src={logo} alt="" /> </Link>
                 <img src={arrow} alt="" className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
               </Menu.Button>
 
@@ -205,15 +207,20 @@ const Chat = () => {
         {sortedChatHistory.map((message, index) => (
               <div
                 key={index}
-                className={`profile flex items-center mt-4 ${
-                  message.isUser ? "justify-end" : ""
+                className={`profile flex flex-col mt-4 ${
+                  message.isUser ? "" : ""
                 }`}
               >
-              {/*{!message.isUser && <img src={bot} alt="" id="logo" />}*/}
-              
-                <p className="font-medium text-xs text-gray-500"> {message?.messageInput} </p>
 
-                <p className="font-medium text-xs text-gray-500"> {message?.bot_response} </p>
+                <div className="flex justify-end items-start">
+                  <p className="font-medium text-xs text-gray-500 mr-4 ml-2">User Input: {message?.messageInput} </p>
+                  {!message.isUser && <img src={user} alt="" id="history-logo" />}
+                </div>
+
+                <div className="flex items-start">
+                  {!message.isUser && <img src={bot} alt="" id="historylogo" />}
+                  <p className="font-medium text-xs text-gray-500 self-start ml-2">Bot Response: {message?.bot_response} </p>
+                </div>
 
               </div>
           ))}

@@ -177,12 +177,9 @@
 .watch-now{
   background-image: url(./images/Rectangle13.png);
   background-repeat: no-repeat;
-  background-size: contain;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60%;
-  height: 500px;
 }
 
 #formlogo{
@@ -280,6 +277,21 @@
     width: 45%;
   }
 
+  #navlogo{
+    width: 30%;
+  }
+
+  .how{
+    margin-top: 2em;
+    margin-bottom: 4em;
+  }
+
+  .watch-now{
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+  }
+
 }
 
 @media screen and (min-width: 769px) {
@@ -305,7 +317,7 @@
     margin-top: 2em;
   }
 
-  #logo, #userlogo{
+  #logo, #userlogo, #historylogo, #history-logo{
     width: 3%;
   }
 
@@ -332,6 +344,16 @@
 
   #logo2{
     width: 45%;
+  }
+
+  #navlogo{
+    width: 10%;
+  }
+
+  .watch-now{
+    background-size: contain;
+    width: 60%;
+    height: 500px;
   }
 
 }

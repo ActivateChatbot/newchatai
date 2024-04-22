@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <div className='nav-container flex justify-between items-center pt-2'>
 
-      <img src={logo} alt='' id='logo' />
+      <Link to="/" id='navlogo'> <img src={logo} alt='' /> </Link>
 
       <div className="navitem md:flex justify-between items-center w-2/4">
 

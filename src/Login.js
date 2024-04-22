@@ -38,7 +38,7 @@ const Login = () => {
         .post("https://chatbotapi0.onrender.com/api-token-auth/", userData)
         .then((response) => {
           
-          console.log(response, response.data.token);
+          //console.log(response, response.data.token);
           //console.log(document.cookie)
           localStorage.setItem('user-info', JSON.stringify(response))
 
@@ -69,7 +69,7 @@ const Login = () => {
   return (
     <div className='signup flex justify-between'>
 
-        <img src={logo} alt='' className='formlogo absolute' id="formlogo" />
+        <Link to="/"> <img src={logo} alt='' className='formlogo absolute' id="formlogo" /> </Link>
 
         <img src={image} alt='' />
 

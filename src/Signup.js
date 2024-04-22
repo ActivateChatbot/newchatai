@@ -40,7 +40,7 @@ const Signup = () => {
   return (
     <div className='signup md:flex md:justify-between'>
 
-        <img src={logo} alt='' className='formlogo absolute' id="formlogo" />
+        <Link to="/"> <img src={logo} alt='' className='formlogo absolute' id="formlogo" /> </Link>
 
         <img src={image} alt='' />
 

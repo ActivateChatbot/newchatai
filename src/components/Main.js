@@ -35,7 +35,7 @@ const Main = () => {
 
       </section>
 
-      <section className='how flex items-center justify-center flex-col p-16'>
+      <section className='how flex items-center justify-center flex-col md:p-16'>
 
         <h1 className='font-bold text-center text-3xl md:mt-16 mb-8'>How It Works? Watch Now</h1>
 
