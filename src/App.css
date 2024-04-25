@@ -188,6 +188,28 @@
   left: 4em;
 }
 
+.chat-input{
+  background-color: #52018E;
+  border-radius: 20px 0px 20px 20px;
+  padding: 15px;
+  color: #fff;
+  width: max-content;
+  max-width: calc(100% - 50px);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.bot-input{
+  background-color: #c0c0c0;
+  border-radius: 0px 20px 20px 20px;
+  padding: 15px;
+  box-shadow: -2px 2px 1px 1px #bbbbbb;
+  width: max-content;
+  max-width: calc(100% - 50px);
+}
+
 @media screen and (max-width: 768px) {
   
   .navitem, .navstart, .rule, .signup > img {

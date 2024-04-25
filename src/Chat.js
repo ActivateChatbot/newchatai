@@ -211,16 +211,19 @@ const Chat = () => {
                   message.isUser ? "" : ""
                 }`}
               >
+                <p className="chat-input font-medium text-sm text-gray-500 mr-2">{message?.messageInput} </p>
 
-                <div className="flex justify-end items-start">
+                {/*<div className="chat-input flex justify-end items-start">
                   <p className="font-medium text-xs text-gray-500 mr-4 ml-2">User Input: {message?.messageInput} </p>
                   {!message.isUser && <img src={user} alt="" id="history-logo" />}
-                </div>
+                </div>*/}
 
-                <div className="flex items-start">
+                  <p className="bot-input mr-2 font-medium text-sm text-gray-500 self-start ml-2">{message?.bot_response} </p>
+
+                {/*<div className="flex items-start">
                   {!message.isUser && <img src={bot} alt="" id="historylogo" />}
                   <p className="font-medium text-xs text-gray-500 self-start ml-2">Bot Response: {message?.bot_response} </p>
-                </div>
+                </div>*/}
 
               </div>
           ))}
