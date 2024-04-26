@@ -9,13 +9,12 @@ const Login = () => {
 
     const [data, setData] = useState({ username: "", password: "" });
 
+    const [loading, setLoading] = useState(false);
+
     const navigate = useNavigate();
 
     useEffect(() => {
       if (localStorage.getItem('user-info')) {
-        //navigate("/exam")
-        //const userData = localStorage.getItem('user-info')
-        //alert(userData)
       }
     }, [])
 
@@ -28,7 +27,9 @@ const Login = () => {
     };
 
     const handleSubmit = (e) => {
+
       e.preventDefault();
+      setLoading(true);
 
       const userData = {
         username: data.username,
@@ -54,6 +55,7 @@ const Login = () => {
 
         })
         .catch((error) => {
+
           if (error.response) {
             console.log(error.response);
             console.log("server responded");
@@ -62,8 +64,24 @@ const Login = () => {
           } else {
             console.log(error);
           }
+
+        })
+        .finally(() => {
+            setLoading(false); 
         });
+
     };
+    
+    const LoadingDots = () => {
+      return (
+          <div className="loading-dots">
+              <span className="dot"></span>
+              <span className="dot"></span>
+              <span className="dot"></span>
+          </div>
+      );
+  };
+  
 
 
   return (
@@ -100,7 +118,10 @@ const Login = () => {
                     <img src={eye} alt='' />
                 </div>
 
-                <button type='submit' className='capitalize flex justify-center items-center text-center rounded-md text-white px-4 py-2 mt-16' style={{background: '#52018E'}}>login</button>
+                <button type='submit'  style={{background: '#52018E'}} disabled={loading}
+                    className='capitalize flex justify-center items-center text-center rounded-md text-white px-4 py-2 mt-16'>
+                    {loading ? <LoadingDots /> : "Login"}
+                </button>
 
             </form>
 

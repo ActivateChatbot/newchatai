@@ -9,6 +9,8 @@ const Signup = () => {
 
     const navigate = useNavigate();
 
+    const [loading, setLoading] = useState(false);
+
     const [state, setState] = useState({ first_name: "", last_name: "", username: "", email: "", password: "", password2: "" });
 
     const handleChange = (e) => {
@@ -20,7 +22,10 @@ const Signup = () => {
     };
 
     const handleSubmit = (e) => {
+
       e.preventDefault();
+      setLoading(true);
+
       const userData = {
         first_name: state.first_name,
         last_name: state.last_name,
@@ -29,12 +34,16 @@ const Signup = () => {
         password: state.password,
         password2: state.password2,
       };
+
       axios.post("https://chatbotapi0.onrender.com/register", userData).then((response) => {
         console.log(response, response.data);
         localStorage.setItem('signup-id', JSON.stringify(response))
 
         navigate("/chat")
-      });
+      })
+      .finally(() => {
+          setLoading(false); 
+      })
     };
 
   return (
@@ -104,7 +113,10 @@ const Signup = () => {
                     <img src={eye} alt='' />
                 </div>
 
-                <button type='submit' className='capitalize flex justify-center items-center text-center rounded-md text-white px-4 py-2 mt-16' style={{background: '#52018E'}}>Get Started</button>
+                <button type='submit' style={{background: '#52018E'}}
+                    className='capitalize flex justify-center items-center text-center rounded-md text-white px-4 py-2 mt-16'>
+                    {loading ? <LoadingDots /> : "Get Started"}
+                </button>
 
             </form>
 
@@ -113,5 +125,15 @@ const Signup = () => {
     </div>
   )
 }
+
+const LoadingDots = () => {
+    return (
+        <div className="loading-dots">
+            <span className="dot"></span>
+            <span className="dot"></span>
+            <span className="dot"></span>
+        </div>
+    );
+};
 
 export {Signup}

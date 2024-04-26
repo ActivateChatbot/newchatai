@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReactMarkdown from 'react-markdown';
 import logo from "./images/Logo2.png";
 import arrow from "./images/arrow1.png";
 import logout from "./images/logout.png";
@@ -21,6 +22,7 @@ const Chat = () => {
     const [messages, setMessages] = useState([]);
     const [inputValue, setInputValue] = useState("");
     const [chatHistory, setChatHistory] = useState([]);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -78,6 +80,8 @@ const Chat = () => {
     const sendMessage = async () => {
 
       if (!inputValue.trim()) return; // Don't send empty messages
+  
+      setLoading(true);
 
       // Add user message to chat history
       const updatedMessages = [...messages, { text: inputValue, isUser: true }];
@@ -121,6 +125,8 @@ const Chat = () => {
       } catch (error) {
         console.error("Error handling form submission:", error);
         // Handle errors gracefully, e.g., display an error message to the user
+      } finally {
+        setLoading(false); // Reset loading state after request completes
       }
 
     };
@@ -227,28 +233,36 @@ const Chat = () => {
 
               </div>
           ))}
+          
+          {loading && (
+            <div className="flex mt-4" style={{ backgroundColor: "#c0c0c0" }}>
+              <div className="bot-input flex text-left ml-2">
+                <LoadingDots />
+              </div>
+            </div>
+          )}
 
           {messages.map((message, index) => (
 
             <div
-              key={index}
+              key={index} id="msg-profile"
               className={`profile flex items-center mt-4 ${
                 message.isUser ? "justify-end" : ""
               }`}
             >
               {!message.isUser && <img src={bot} alt="" id="logo" />}
 
-              <div className="aboutchat flex flex-col text-left ml-2">
+              <div className={`aboutchat flex flex-col text-left ml-2 ${message.isUser ? "bg-gray-500" : ""}`}
+                style={{ backgroundColor: message.isUser ? "#52018E" : "#c0c0c0" }}
+              >
 
-                <h3
-                  className={`capitalize font-bold ${
-                    message.isUser ? "text-green-600" : "text-blue-600"
-                  }`}
-                >
+                <h3 className={`capitalize font-bold ${message.isUser ? "text-green-600" : "text-blue-600"}`}>
                   {message.isUser ? "you" : "ai chatbot"}
                 </h3>
+              {/* Render Markdown content using react-markdown */}
+              <ReactMarkdown className={`font-medium text-sm ${message.isUser ? "text-white" : "text-gray-500"}`}>{message.text}</ReactMarkdown>
 
-                <p className="font-medium text-xs text-gray-500"> {message.text} </p>
+                {/*<p className={`font-medium text-sm ${message.isUser ? "text-white" : "text-gray-500"}`}> {message.text} </p>*/}
 
               </div>
 
@@ -288,6 +302,16 @@ const Chat = () => {
       </div>
 
   );
+};
+
+const LoadingDots = () => {
+    return (
+        <div className="loading-dots">
+            <span className="dot"></span>
+            <span className="dot"></span>
+            <span className="dot"></span>
+        </div>
+    );
 };
 
 export { Chat };
