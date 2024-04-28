@@ -3,8 +3,8 @@ import ReactMarkdown from 'react-markdown';
 import logo from "./images/Logo2.png";
 import arrow from "./images/arrow1.png";
 import logout from "./images/logout.png";
-import user from "./images/Ellipse.png";
-import bot from "./images/5.png";
+//import user from "./images/Ellipse.png";
+//import bot from "./images/5.png";
 import emoji from "./images/emoji.png";
 import send from "./images/send.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -77,16 +77,20 @@ const Chat = () => {
       return a.id - b.id;
     });
 
-    const sendMessage = async () => {
+    const handleInputChange = (e) => {
+      setInputValue(e.target.value)
+    }
+
+    const sendMessage = async (e) => {
 
       if (!inputValue.trim()) return; // Don't send empty messages
-  
-      setLoading(true);
 
       // Add user message to chat history
       const updatedMessages = [...messages, { text: inputValue, isUser: true }];
       setMessages(updatedMessages);
       setInputValue("");
+  
+      setLoading(true);
 
       try {
 
@@ -95,6 +99,7 @@ const Chat = () => {
         formData.append("user_input", inputValue);
 
         const userData = localStorage.getItem("user-info");
+
         if (!userData) {
           throw new Error("User details not found in local storage");
         }
@@ -210,66 +215,47 @@ const Chat = () => {
 
         <section id="chat-container" className="chat-sec">
 
-        {sortedChatHistory.map((message, index) => (
-              <div
-                key={index}
-                className={`profile flex flex-col mt-4 ${
-                  message.isUser ? "" : ""
-                }`}
-              >
+          {sortedChatHistory.map((message, index) => (
+              <div key={index} className={`profile flex flex-col mt-4 ${message.isUser ? "" : ""}`}>
                 <p className="chat-input font-medium text-sm text-gray-500 mr-2">{message?.messageInput} </p>
 
-                {/*<div className="chat-input flex justify-end items-start">
-                  <p className="font-medium text-xs text-gray-500 mr-4 ml-2">User Input: {message?.messageInput} </p>
-                  {!message.isUser && <img src={user} alt="" id="history-logo" />}
-                </div>*/}
-
-                  <p className="bot-input mr-2 font-medium text-sm text-gray-500 self-start ml-2">{message?.bot_response} </p>
-
-                {/*<div className="flex items-start">
-                  {!message.isUser && <img src={bot} alt="" id="historylogo" />}
-                  <p className="font-medium text-xs text-gray-500 self-start ml-2">Bot Response: {message?.bot_response} </p>
-                </div>*/}
+                <p className="bot-input mr-2 font-medium text-sm text-gray-500 self-start ml-2">{message?.bot_response} </p>
 
               </div>
           ))}
-          
-          {loading && (
-            <div className="flex mt-4" style={{ backgroundColor: "#c0c0c0" }}>
-              <div className="bot-input flex text-left ml-2">
-                <LoadingDots />
-              </div>
-            </div>
-          )}
 
           {messages.map((message, index) => (
 
-            <div
-              key={index} id="msg-profile"
-              className={`profile flex items-center mt-4 ${
-                message.isUser ? "justify-end" : ""
-              }`}
-            >
-              {!message.isUser && <img src={bot} alt="" id="logo" />}
+            <div key={index} id="msg-profile" className={`profile flex items-center mt-4 ${ message.isUser ? "justify-end" : "" }`}>
 
               <div className={`aboutchat flex flex-col text-left ml-2 ${message.isUser ? "bg-gray-500" : ""}`}
-                style={{ backgroundColor: message.isUser ? "#52018E" : "#c0c0c0" }}
+                style={{ backgroundColor: message.isUser ? "#52018E" : "#c0c0c0", marginRight: message.isUser ? "1em" : "", }}
               >
 
                 <h3 className={`capitalize font-bold ${message.isUser ? "text-green-600" : "text-blue-600"}`}>
                   {message.isUser ? "you" : "ai chatbot"}
                 </h3>
               {/* Render Markdown content using react-markdown */}
-              <ReactMarkdown className={`font-medium text-sm ${message.isUser ? "text-white" : "text-gray-500"}`}>{message.text}</ReactMarkdown>
+              <ReactMarkdown className={`font-medium text-sm ${message.isUser ? "text-white" : "text-gray-500"}`}>
+                {message.text}
+              </ReactMarkdown>
 
                 {/*<p className={`font-medium text-sm ${message.isUser ? "text-white" : "text-gray-500"}`}> {message.text} </p>*/}
 
               </div>
 
-              {message.isUser && <img src={user} alt="" id="userlogo" />}
+              {/*{message.isUser && <img src={user} alt="" id="userlogo" />} */}
 
             </div>
           ))}  
+
+          {/* Show spinner for bot messages when loading */}
+          
+          {loading && (
+            <div className="bot-input flex text-left ml-2">
+                  <LoadingDots />
+                </div>
+          )}
 
         </section>
           
