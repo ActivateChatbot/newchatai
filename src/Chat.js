@@ -6,12 +6,13 @@ import logout from "./images/logout.png";
 //import user from "./images/Ellipse.png";
 //import bot from "./images/5.png";
 import emoji from "./images/emoji.png";
-import send from "./images/send.png";
+import send from "./images/send1.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { Chatbar } from "./components/Chatbar";
+//import {useStream} from 'react-fetch-streams';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -127,6 +128,7 @@ const Chat = () => {
         setMessages(updatedMessagesWithBotResponse);
 
         localStorage.setItem("user-message", JSON.stringify(response.data));
+
       } catch (error) {
         console.error("Error handling form submission:", error);
         // Handle errors gracefully, e.g., display an error message to the user
@@ -259,12 +261,8 @@ const Chat = () => {
 
         </section>
           
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              sendMessage();
-            }}
-            className="message flex items-center justify-between rounded-lg px-2"
+          <form onSubmit={(e) => {e.preventDefault(); sendMessage();}}
+            className="message flex items-center justify-between rounded-3xl px-2 py-2"
           >
             <div className="flex items-center">
           
