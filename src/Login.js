@@ -36,7 +36,8 @@ const Login = () => {
         password: data.password
       };
       axios
-        .post("https://chatbotapi0.onrender.com/api-token-auth/", userData)
+        //.post("https://chatbotapi0.onrender.com/api-token-auth/", userData)
+        .post("http://ec2-13-49-70-103.eu-north-1.compute.amazonaws.com/api-token-auth/", userData)
         .then((response) => {
           
           //console.log(response, response.data.token);

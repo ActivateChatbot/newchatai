@@ -58,7 +58,7 @@ const Chat = () => {
         const authToken = userdetail.data.token;
   
         const response = await axios.get(
-          "https://chatbotapi0.onrender.com/message",
+          "http://ec2-13-49-70-103.eu-north-1.compute.amazonaws.com/message",
           {
             headers: {
               Authorization: `Token ${authToken}`,
@@ -109,7 +109,7 @@ const Chat = () => {
         const authToken = userdetail.data.token;
 
         const response = await axios.post(
-          "https://chatbotapi0.onrender.com/message",
+          "http://ec2-13-49-70-103.eu-north-1.compute.amazonaws.com/message",
           formData,
           {
             headers: {

@@ -35,7 +35,7 @@ const Signup = () => {
         password2: state.password2,
       };
 
-      axios.post("https://chatbotapi0.onrender.com/register", userData).then((response) => {
+      axios.post("http://ec2-13-49-70-103.eu-north-1.compute.amazonaws.com/register", userData).then((response) => {
         console.log(response, response.data);
         localStorage.setItem('signup-id', JSON.stringify(response))
 
