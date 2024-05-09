@@ -116,16 +116,59 @@ const Chat = () => {
               Authorization: `Token ${authToken}`,
             },
           }
+
         );
 
         const botResponse = response.data.bot_response;
 
+        // Placeholder message for bot response
+        const placeholderMessage = { text: "Waiting for bot response...", isUser: false };
+        const updatedMessagesWithPlaceholder = [...updatedMessages, placeholderMessage];
+        setMessages(updatedMessagesWithPlaceholder);
+
+        setTimeout(() => {
+          // Simulated response stages
+          const stages = [
+            "Generating response...",
+            "Thinking...",
+            "Almost there...",
+            "Here's your response!"
+          ];
+
+          let stageIndex = 0;
+
+          const interval = setInterval(() => {
+
+            const stagedMessages = [...updatedMessagesWithPlaceholder];
+            stagedMessages[stagedMessages.length - 1].text = stages[stageIndex];
+            setMessages(stagedMessages);
+      
+            stageIndex++;
+
+            //setMessages(stages[stageIndex]);
+
+            //stageIndex++;
+
+            if (stageIndex === stages.length) {
+
+              clearInterval(interval);
+              setLoading(false);
+
+              // Replace placeholder message with actual bot response
+              const updatedMessagesWithBotResponse = [...stagedMessages];
+              updatedMessagesWithBotResponse[updatedMessagesWithBotResponse.length - 1].text = botResponse;
+              setMessages(updatedMessagesWithBotResponse);
+            }
+          }, 1000); // Simulated stage change every second
+
+        }, 2000); // Simulating a delay of 2 seconds before starting response stages
+
         // Add bot response to chat history
-        const updatedMessagesWithBotResponse = [
+        /*const updatedMessagesWithBotResponse = [
           ...updatedMessages,
           { text: botResponse, isUser: false },
         ];
-        setMessages(updatedMessagesWithBotResponse);
+        setMessages(updatedMessagesWithBotResponse);*/
 
         localStorage.setItem("user-message", JSON.stringify(response.data));
 
