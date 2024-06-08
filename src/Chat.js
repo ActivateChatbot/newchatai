@@ -58,7 +58,7 @@ const Chat = () => {
         const authToken = userdetail.data.token;
   
         const response = await axios.get(
-          "http://ec2-13-49-70-103.eu-north-1.compute.amazonaws.com/message",
+          "https://api.goviral.africa/message",
           {
             headers: {
               Authorization: `Token ${authToken}`,
@@ -109,7 +109,7 @@ const Chat = () => {
         const authToken = userdetail.data.token;
 
         const response = await axios.post(
-          "http://ec2-13-49-70-103.eu-north-1.compute.amazonaws.com/message",
+          "https://api.goviral.africa/message",
           formData,
           {
             headers: {
