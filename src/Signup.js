@@ -40,7 +40,7 @@ const Signup = () => {
         console.log(response, response.data);
         localStorage.setItem('signup-id', JSON.stringify(response))
 
-        navigate("/chat")
+        navigate("/login")
       })
       .finally(() => {
           setLoading(false); 
