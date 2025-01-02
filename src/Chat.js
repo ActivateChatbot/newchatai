@@ -13,6 +13,10 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { Chatbar } from "./components/Chatbar";
 //import {useStream} from 'react-fetch-streams';
+import { API_URL } from './constants';
+
+
+console.log(API_URL)
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -58,7 +62,7 @@ const Chat = () => {
         const authToken = userdetail.data.token;
   
         const response = await axios.get(
-          "https://api.goviral.africa/message",
+          `${API_URL}/message`,
           {
             headers: {
               Authorization: `Token ${authToken}`,
@@ -109,7 +113,7 @@ const Chat = () => {
         const authToken = userdetail.data.token;
 
         const response = await axios.post(
-          "https://api.goviral.africa/message",
+          `${API_URL}/message`,
           formData,
           {
             headers: {

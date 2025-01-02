@@ -4,6 +4,7 @@ import eye from './images/eye.png'
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from "./images/Logo3.png";
+import { API_URL } from './constants';
 
 const Signup = () => {
 
@@ -35,7 +36,7 @@ const Signup = () => {
         password2: state.password2,
       };
 
-      axios.post("https://api.goviral.africa/register", userData).then((response) => {
+      axios.post(`${API_URL}/register`, userData).then((response) => {
         console.log(response, response.data);
         localStorage.setItem('signup-id', JSON.stringify(response))
 

@@ -4,6 +4,7 @@ import eye from './images/eye.png'
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from "./images/Logo3.png";
+import { API_URL } from './constants';
 
 const Login = () => {
 
@@ -37,7 +38,7 @@ const Login = () => {
       };
       axios
         //.post("https://chatbotapi0.onrender.com/api-token-auth/", userData)
-        .post("https://api.goviral.africa/api-token-auth/", userData)
+        .post(`${API_URL}/api-token-auth/`, userData)
         .then((response) => {
           
           //console.log(response, response.data.token);
